@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Minha Barra de Pesquisa</h2>
+        <div class="pesquisar barra" id="">
+           <input type="search" class="pesquisar campo" id="" placeholder="Pesquisar" onkeypress="execurtarPesquisaBarra('pesquisar')">
+            <input type="button" class="pesquisar botao" id="" value="Pesquisar" onclick="executarPesquisaBotao('pesquisar')"> 
+        </div>
+        <div class="seletorDeEstilos">
+            <h3>Escolha uma opção de estilo: </h3>
+            <select id="seletorDeEstilo" onchange="executarMudancaEstilo('seletorDeEstilo', 'pesquisar')">
+                <option value="0">Padrão</option>
+                <option value="1" >Escuro</option>
+                <option value="2">Claro</option>
+                <option value="3">Rosa</option>
+                <option value="4">Azul</option>
+                <option value="5">Vermelho</option>
+                <option value="6">Verde</option>
+            </select>
+        </div> 
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
