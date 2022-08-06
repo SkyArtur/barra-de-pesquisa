@@ -2,7 +2,6 @@
 class ElementosDaBarraPesquisa{
     constructor(nomeClasse){
         this.elementos = document.getElementsByClassName(nomeClasse)
-        this.cor = ['', 'Escuro', 'Claro', 'Rosa', 'Azul', 'Vermelho', 'Verde']
     }
     barra = () => {return this.elementos[0]}
     campo = () => {return this.elementos[1]}
@@ -29,6 +28,7 @@ class Pesquisar extends ElementosDaBarraPesquisa{
 class MudarEstilo extends ElementosDaBarraPesquisa{
     constructor(nomeClasse){
         super(nomeClasse)
+        this.cor = ['', 'Escuro', 'Claro', 'Rosa', 'Azul', 'Vermelho', 'Verde']
     }
     mudar(n){
         if(n != 0){
