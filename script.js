@@ -1,5 +1,5 @@
 /*Elementos */
-class ElementosDaBarraPesquisa{
+class ElementosDaBarraPesquisar{
     constructor(nomeClasse){
         this.elementos = document.getElementsByClassName(nomeClasse)
     }
@@ -8,7 +8,7 @@ class ElementosDaBarraPesquisa{
     botao = () => {return this.elementos[2]}
 }
 /*Pesquisa*/
-class Pesquisar extends ElementosDaBarraPesquisa{
+class Pesquisar extends ElementosDaBarraPesquisar{
     constructor(nomeClasse){
         super(nomeClasse)
     }
@@ -25,7 +25,7 @@ class Pesquisar extends ElementosDaBarraPesquisa{
     }
 }
 /*Seletor de Estilo*/
-class MudarEstilo extends ElementosDaBarraPesquisa{
+class MudarEstilo extends ElementosDaBarraPesquisar{
     constructor(nomeClasse){
         super(nomeClasse)
         this.cor = ['', 'Escuro', 'Claro', 'Rosa', 'Azul', 'Vermelho', 'Verde']
