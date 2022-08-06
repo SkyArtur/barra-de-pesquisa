@@ -1,18 +1,15 @@
 # Exercício de HTML, CSS e JS - Simples Campo de Pesquisa
 > Status : Concluído
 
-![GitHub repo size](https://img.shields.io/github/repo-size/SkyArtur/barra-de-pesquisa)
-![GitHub stars](https://img.shields.io/github/stars/SkyArtur/barra-de-pesquisa?style=social)
-![GitHub forks](https://img.shields.io/github/forks/SkyArtur/barra-de-pesquisa?style=social)
-
 ## Projeto prático no apredizado em HTML, CSS, JavaScript
 
 <p align="center" >
   <img width="610" height="210" alt="Logo BlackJack" src="https://user-images.githubusercontent.com/93395366/183230217-08d2d797-9c9b-447f-8994-0bfc452d29cc.png">
 </p>
-<hr>
 
 Um projeto simples que realiza pesquisa no google, detecta a tecla Enter na caixa de pesquisa via JavaScript, e permite a alteração do estilo e cor do componente de pesquisa.
+
+<hr>
 
 ## Cores Disponíveis
 
