@@ -1,5 +1,5 @@
 /*Elementos */
-class ElementosDoApp{
+class ElementosDaBarraDePesquisa{
     constructor(nomeClasse){
         this.elementos = document.getElementsByClassName(nomeClasse)
         this.opcoes = ['Padrão', 'Escuro', 'Claro', 'Rosa', 'Azul', 'Vermelho', 'Verde']
@@ -10,7 +10,7 @@ class ElementosDoApp{
     seletor = () => {return this.elementos[3]}
 }
 /*Comandos de Pesquisa*/
-class ComandosDaBarraDePesquisa extends ElementosDoApp{
+class ComandosDaBarraDePesquisa extends ElementosDaBarraDePesquisa{
     constructor(nomeClasse){
         super(nomeClasse)
     }
@@ -27,7 +27,7 @@ class ComandosDaBarraDePesquisa extends ElementosDoApp{
     }
 }
 /*Seletor de Estilo*/
-class SeletorDeEstilo extends ElementosDoApp{
+class SeletorDaBarraDePesquisa extends ComandosDaBarraDePesquisa{
     constructor(nomeClasse){
         super(nomeClasse)
     }
@@ -51,19 +51,22 @@ class SeletorDeEstilo extends ElementosDoApp{
     }
 }
 /*Execuções*/
-function executarPesquisaBotao(nomeClasse){
-    let pesquisar = new ComandosDaBarraDePesquisa(nomeClasse)
-    pesquisar.comandoProcurar()
+class Executar{
+    comandoClick(nomeClasse){
+        let pesquisar = new ComandosDaBarraDePesquisa(nomeClasse)
+        pesquisar.comandoProcurar()
+    }
+    comandoEnter(nomeClasse){
+        let pesquisar = new ComandosDaBarraDePesquisa(nomeClasse)
+        pesquisar.detectarTeclaEnter()
+    }
+    montarSeletor(nomeClasse){
+        let opcoes = new SeletorDaBarraDePesquisa(nomeClasse)
+        opcoes.construirOpcoes()
+    }
+    mudarEstilo(nomeClasse){
+        let mudar = new SeletorDaBarraDePesquisa(nomeClasse)
+        mudar.selecionarEstilo()
+    }
 }
-function execurtarPesquisaBarra(nomeClasse){
-    let pesquisar = new ComandosDaBarraDePesquisa(nomeClasse)
-    pesquisar.detectarTeclaEnter()
-}
-function executarCriarOpcoesSeletor(nomeClasse){
-    let opcoes = new SeletorDeEstilo(nomeClasse)
-    opcoes.construirOpcoes()
-}
-function executarMudarEstilo(nomeClasse){
-    let mudar = new SeletorDeEstilo(nomeClasse)
-    mudar.selecionarEstilo()
-}
+

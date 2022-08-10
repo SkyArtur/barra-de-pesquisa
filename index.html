@@ -10,16 +10,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
-<body onload="executarCriarOpcoesSeletor('pesquisar')">
+<body onload="new Executar().montarSeletor('pesquisar')">
     <div class="container">
         <h2>Simples Campo de Pesquisa</h2>
         <div class="pesquisar barra">
-           <input type="search" class="pesquisar campo" id="" placeholder="Pesquisar no Google" onkeypress="execurtarPesquisaBarra('pesquisar')">
-            <input type="button" class="pesquisar botao" id="" value="Pesquisar" onclick="executarPesquisaBotao('pesquisar')"> 
+           <input 
+                type="search" 
+                class="pesquisar campo" 
+                placeholder="Pesquisar no Google" 
+                onkeypress="new Executar().comandoEnter('pesquisar')"
+            >
+            <input
+                type="button" 
+                class="pesquisar botao" 
+                value="Pesquisar" 
+                onclick="new Executar().comandoClick('pesquisar')"
+            > 
         </div>
         <div class="seletorDeEstilos">
             <h3>Escolha uma opção de estilo: </h3>
-            <select class="pesquisar seletor"onchange="executarMudarEstilo('pesquisar')"></select>
+            <select class="pesquisar seletor"onchange="new Executar().mudarEstilo('pesquisar')"></select>
         </div> 
     </div>
     <script src="/script.js"></script>
