@@ -1,66 +1,69 @@
 /*Elementos */
-class ElementosDaBarraPesquisar{
+class ElementosDoApp{
     constructor(nomeClasse){
         this.elementos = document.getElementsByClassName(nomeClasse)
+        this.opcoes = ['Padrão', 'Escuro', 'Claro', 'Rosa', 'Azul', 'Vermelho', 'Verde']
     }
     barra = () => {return this.elementos[0]}
     campo = () => {return this.elementos[1]}
     botao = () => {return this.elementos[2]}
+    seletor = () => {return this.elementos[3]}
 }
-/*Pesquisa*/
-class Pesquisar extends ElementosDaBarraPesquisar{
+/*Comandos de Pesquisa*/
+class ComandosDaBarraDePesquisa extends ElementosDoApp{
     constructor(nomeClasse){
         super(nomeClasse)
     }
-    pressionarEnter(){
+    detectarTeclaEnter(){
         this.campo().addEventListener('keypress', (e) => {
             if(e.key === 'Enter'){
-                this.comandoProcura()
+                this.comandoProcurar()
             }
         })
     }
-    comandoProcura(){
+    comandoProcurar(){
         window.open(`https://www.google.com/search?q=${this.campo().value}`, '_blank')
         this.campo().value = ''
     }
 }
 /*Seletor de Estilo*/
-class MudarEstilo extends ElementosDaBarraPesquisar{
+class SeletorDeEstilo extends ElementosDoApp{
     constructor(nomeClasse){
         super(nomeClasse)
-        this.cor = ['', 'Escuro', 'Claro', 'Rosa', 'Azul', 'Vermelho', 'Verde']
     }
-    mudar(n){
-        if(n != 0){
-           this.barra().setAttribute('id', `pesquisar${this.cor[n]}`)
-           this.campo().setAttribute('id', `pesquisarCampo${this.cor[n]}`)
-           this.botao().setAttribute('id', `pesquisarBotao${this.cor[n]}`)
-        }else{
-            this.barra().setAttribute('id', `${this.cor[n]}`)
-            this.campo().setAttribute('id', `${this.cor[n]}`)
-            this.botao().setAttribute('id', `${this.cor[n]}`)
-        }   
+    #mudarEstilo(value){
+        if(value != 0){
+            this.barra().setAttribute('id', `barra${this.opcoes[value]}`)
+            this.campo().setAttribute('id', `campo${this.opcoes[value]}`)
+            this.botao().setAttribute('id', `botao${this.opcoes[value]}`)
+         }  
     }
-}
-class SeletorDeEstilo extends MudarEstilo{
-    constructor(idSeletor, nomeClasse){
-        super(nomeClasse)
-        this.seletor = document.getElementById(idSeletor)
+    construirOpcoes(){
+        for(var i = 0; i < this.opcoes.length; i++){
+            let inn = document.createElement('option')
+            inn.setAttribute('value', `${i}`)
+            inn.innerHTML = `${this.opcoes[i]}`
+            this.seletor().appendChild(inn)
+        }
     }
     selecionarEstilo(){
-        this.mudar(this.seletor.value)
+        this.#mudarEstilo(this.seletor().value)
     }
 }
 /*Execuções*/
 function executarPesquisaBotao(nomeClasse){
-    let pesquisar = new Pesquisar(nomeClasse)
-    pesquisar.comandoProcura()
+    let pesquisar = new ComandosDaBarraDePesquisa(nomeClasse)
+    pesquisar.comandoProcurar()
 }
 function execurtarPesquisaBarra(nomeClasse){
-    let pesquisar = new Pesquisar(nomeClasse)
-    pesquisar.pressionarEnter()
+    let pesquisar = new ComandosDaBarraDePesquisa(nomeClasse)
+    pesquisar.detectarTeclaEnter()
 }
-function executarMudancaEstilo(id, classe){
-    const mudar = new SeletorDeEstilo(id, classe)
+function executarCriarOpcoesSeletor(nomeClasse){
+    let opcoes = new SeletorDeEstilo(nomeClasse)
+    opcoes.construirOpcoes()
+}
+function executarMudarEstilo(nomeClasse){
+    let mudar = new SeletorDeEstilo(nomeClasse)
     mudar.selecionarEstilo()
 }
